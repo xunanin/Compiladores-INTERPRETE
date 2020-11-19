@@ -7,6 +7,11 @@
 typedef struct n{
   char* lexema;
   int id;
+  short int tipo;
+  union d{
+    void* func;
+    float valor;
+  } contido;
   struct n* esquerda;
   struct n* dereita;
   int peso;
@@ -30,6 +35,13 @@ int equilibrio(ref_nodo n){
     return 0;
   return val_peso(n->esquerda)-val_peso(n->dereita);
 }
+
+////////////////////////////
+int crea_nodo_funcion(ref_nodo* n, char* lex , int id, void* funcion){
+  *nodo = (ref_nodo)malloc(sizeof(nodo_avl));
+
+}
+///////////////////////////
 
 //Función para a creación dun nodo dados un lexema e o código dese lexema
 int crea_nodo(ref_nodo* nodo, char* lex, int identificador){
